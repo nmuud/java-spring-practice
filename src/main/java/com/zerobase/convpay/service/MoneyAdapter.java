@@ -1,9 +1,6 @@
 package com.zerobase.convpay.service;
 
-import com.zerobase.convpay.type.CancelPaymentResult;
-import com.zerobase.convpay.type.MoneyUseCancelResult;
-import com.zerobase.convpay.type.MoneyUseResult;
-import com.zerobase.convpay.type.PaymentResult;
+import com.zerobase.convpay.type.*;
 
 public class MoneyAdapter implements PaymentInterface{
 
@@ -28,6 +25,11 @@ public class MoneyAdapter implements PaymentInterface{
 
     }
 
+
+    @Override
+    public PayMethodType getPayMethodType() {
+        return PayMethodType.MONEY;
+    }
 
     @Override
     public PaymentResult payment(Integer payAmount) {

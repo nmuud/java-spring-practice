@@ -10,11 +10,19 @@ import com.zerobase.convpay.type.PayMethodType;
 import com.zerobase.convpay.type.PayResult;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 class ConveniencePayServiceTest {
-    ConveniencePayService conveniencePayService = new ConveniencePayService();
+    ConveniencePayService conveniencePayService = new ConveniencePayService(
+            new HashSet<>(
+                    Arrays.asList(new MoneyAdapter(), new CardAdapter())
+            ),
+            new DiscountByPayMethod()
+    );
 
     @Test
     void pay_success() {
